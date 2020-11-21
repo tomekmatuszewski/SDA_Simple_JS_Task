@@ -17,20 +17,18 @@ const createRow = (element) => {
             cell.innerText = `${element[key]}`
             row.appendChild(cell)
         }
-        else if (key === 'address') {
-            cell = document.createElement('td')
-            cell.innerText = `${element[key].city}`
-            row.appendChild(cell)
-        }
-        else if (key === 'company') {
-            cell = document.createElement('td')
-            cell.innerText = `${element[key].name}`
-            row.appendChild(cell)
-        }
         else if (key === 'website' || key === 'phone') {}
         else {
             cell = document.createElement('td')
-            cell.innerText = `${element[key]}`
+            if (key === 'address') {
+                cell.innerText = `${element[key].city}`
+            }
+            else if (key == 'company') {
+                cell.innerText = `${element[key].name}`
+            }
+            else {
+                cell.innerText = `${element[key]}`
+            }
             row.appendChild(cell)
         }
     }
